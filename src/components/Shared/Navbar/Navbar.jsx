@@ -24,12 +24,7 @@ const Navbar = () => {
 
             {/* Nav Links */}
             <div className='hidden md:flex items-center gap-6'>
-              <NavLink
-                to='/'
-                className={({ isActive }) =>
-                  `${isActive ? 'underline font-semibold' : ''}`
-                }
-              >
+              <NavLink to='/' className={({ isActive }) => `${isActive ? 'underline font-semibold' : ''}`} >
                 Home
               </NavLink>
               <NavLink
@@ -54,7 +49,8 @@ const Navbar = () => {
               <NavLink
                 to='/cart'
                 className={({ isActive }) =>
-                  `btn btn-sm btn-ghost${isActive ? ' underline font-semibold' : ''}`
+                  ` ${isActive ? 'text-white font-semibold border-b-1 border-white' : 'hover:text-white/80'
+                  }`
                 }
               >
                 <FaShoppingCart className="text-xl" />
@@ -62,7 +58,7 @@ const Navbar = () => {
 
               {/* Language Dropdown (DaisyUI) */}
               <details className="dropdown dropdown-end">
-                <summary className="btn btn-sm btn-ghost">
+                <summary className="btn btn-sm btn-ghost bg-transparent ">
                   <FaGlobeAmericas className="text-xl" />
                 </summary>
                 <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 text-black rounded-box w-28">

@@ -4,6 +4,8 @@ import ErrorPage from '../pages/ErrorPage'
 import Home from '../pages/Home/Home'
 import Login from '../pages/Auth/Login'
 import SignUp from '../pages/Auth/SignUp'
+import Shop from '../pages/Shop/Shop'
+import Cart from '../pages/Cart/Cart'
 
 
 const router = createBrowserRouter([
@@ -16,10 +18,10 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />
       },
-      //     {
-      //       path: '/shop',
-      //       element: <Shop />
-      //     },
+      {
+        path: '/shop',
+        element: <Shop />
+      },
       //     {
       //       path: '/category/:id',
       //       element: <CategoryDetails />
@@ -32,10 +34,10 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <SignUp />
       },
-      //     {
-      //       path: '/cart',
-      //       element: <Cart />
-      //     },
+      {
+        path: '/cart',
+        element: <Cart />
+      },
       //     {
       //       path: '/checkout',
       //       element: <Checkout />
