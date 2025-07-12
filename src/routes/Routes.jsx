@@ -6,6 +6,7 @@ import Login from '../pages/Auth/Login'
 import SignUp from '../pages/Auth/SignUp'
 import Shop from '../pages/Shop/Shop'
 import Cart from '../pages/Cart/Cart'
+import UpdateProfile from '../pages/Auth/UpdateProfile'
 
 
 const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
         element: <SignUp />
       },
       {
+        path: 'update-profile',
+        element: <UpdateProfile />
+      },
+      {
         path: '/cart',
         element: <Cart />
       },
@@ -53,12 +58,6 @@ const router = createBrowserRouter([
       //   element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
       //   errorElement: <ErrorPage />,
       //   children: [
-      //     // Shared Route
-      //     {
-      //       path: 'update-profile',
-      //       element: <UpdateProfile />
-      //     },
-
       //     // Admin Routes
       //     {
       //       path: 'admin-home',
