@@ -56,80 +56,62 @@ const Login = () => {
 
     return (
         <div className='flex justify-center items-center min-h-screen bg-white'>
-            <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
-                <div className='mb-8 text-center'>
-                    <h1 className='my-3 text-4xl font-bold'>Log In</h1>
-                </div>
+            <div className='flex flex-col max-w-md w-full p-6 rounded-lg shadow-md bg-gray-100 text-gray-900'>
+                <h1 className='mb-6 text-4xl font-bold text-center'>Log In</h1>
 
-                <form onSubmit={handleSubmit} className='space-y-6'>
-                    <div className='space-y-4'>
-                        <div>
-                            <label htmlFor='email' className='block mb-2 text-sm'>Email address</label>
-                            <input
-                                type='email'
-                                name='email'
-                                id='email'
-                                required
-                                placeholder='Enter Your Email Here'
-                                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#25A8D6] bg-gray-200 text-gray-900'
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor='password' className='block mb-2 text-sm'>Password</label>
-                            <input
-                                type='password'
-                                name='password'
-                                autoComplete='current-password'
-                                id='password'
-                                required
-                                placeholder='*******'
-                                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#25A8D6] bg-gray-200 text-gray-900'
-                            />
-                            <div className='space-y-1 mt-1'>
-                                <button
-                                    type='button'
-                                    className='text-xs hover:underline hover:text-[#25A8D6] cursor-pointer text-gray-400'
-                                >
-                                    Forgot password?
-                                </button>
-                            </div>
-                        </div>
+                <form onSubmit={handleSubmit} className='space-y-5'>
+                    <div>
+                        <label htmlFor='email' className='block mb-2 text-sm'>Email address</label>
+                        <input
+                            type='email'
+                            name='email'
+                            id='email'
+                            required
+                            placeholder='example@email.com'
+                            className='w-full px-3 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-[#25A8D6] bg-gray-200'
+                        />
                     </div>
 
                     <div>
-                        <button
-                            type='submit'
-                            className='w-full py-3 rounded-md font-semibold text-white bg-gradient-to-r from-[#6BDCF6] to-[#25A8D6] hover:brightness-110 transition'
-                        >
-                            {loading ? <TbFidgetSpinner className='animate-spin m-auto' /> : 'Continue'}
-                        </button>
+                        <label htmlFor='password' className='block mb-2 text-sm'>Password</label>
+                        <input
+                            type='password'
+                            name='password'
+                            id='password'
+                            required
+                            placeholder='********'
+                            className='w-full px-3 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-[#25A8D6] bg-gray-200'
+                        />
+                        <div className='text-xs mt-1 text-gray-400 hover:underline hover:text-[#25A8D6] cursor-pointer'>
+                            Forgot password?
+                        </div>
                     </div>
+
+                    <button
+                        type='submit'
+                        className='cursor-pointer bg-gradient-to-r from-[#6BDCF6] to-[#25A8D6] w-full rounded-md py-3 text-white font-semibold hover:brightness-110'
+                    >
+                        {loading ? <TbFidgetSpinner className='animate-spin m-auto' /> : 'Log In'}
+                    </button>
                 </form>
 
-                <div className='flex items-center pt-4 space-x-1'>
+                <div className='flex items-center my-4 space-x-2'>
                     <div className='flex-1 h-px bg-gray-300'></div>
-                    <p className='px-3 text-sm text-gray-500'>Login with social accounts</p>
+                    <span className='text-gray-500 text-sm'>Or</span>
                     <div className='flex-1 h-px bg-gray-300'></div>
                 </div>
 
                 <div
                     onClick={handleGoogleSignIn}
-                    className='flex justify-center items-center space-x-2 border m-3 p-2 rounded-md border-[#25A8D6] cursor-pointer hover:bg-[#6BDCF6]/20 transition duration-200'
+                    className='flex justify-center items-center space-x-2 border p-2 rounded-md border-gray-300 cursor-pointer hover:bg-[#6BDCF6]/20 transition duration-200'
                 >
-                    <FcGoogle size={32} />
+                    <FcGoogle size={24} />
                     <p className='font-medium'>Continue with Google</p>
                 </div>
 
-                <p className='px-6 text-sm text-center text-gray-500'>
-                    Don&apos;t have an account yet?{' '}
-                    <Link
-                        to='/signup'
-                        className='hover:underline hover:text-[#25A8D6] text-gray-700 font-medium'
-                    >
-                        Sign up
-                    </Link>
-                    .
+                <p className='mt-4 text-sm text-center text-gray-500'>
+                    Don&apos;t have an account?{' '}
+                    <Link to='/signup' className='font-medium text-[#25A8D6] hover:underline'>Sign Up</Link>
                 </p>
             </div>
         </div>
