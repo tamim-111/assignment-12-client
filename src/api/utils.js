@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-// upload image and return image url
+// Upload image and return image URL
 export const imageUpload = async imageData => {
     const imageFormData = new FormData()
     imageFormData.append('image', imageData)
@@ -9,16 +9,21 @@ export const imageUpload = async imageData => {
         `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`,
         imageFormData
     )
-    // image url response from imgbb
     return data?.data?.display_url
 }
 
-// save or update user in db
+// Save or update user in DB
 export const saveUserInDb = async user => {
-    const { data } = await axios.post(
-        `${import.meta.env.VITE_API_URL}/user`,
-        user
+    const token = localStorage.getItem('access-token')
+    const { data } = await axios.put(
+        `${import.meta.env.VITE_API_URL}/users/${user.email}`,
+        user,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
     )
 
-    console.log(data)
+    console.log('Saved user:', data)
 }

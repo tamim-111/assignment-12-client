@@ -5,11 +5,13 @@ import useAuth from '../../hooks/useAuth'
 import { toast } from 'react-hot-toast'
 import { TbFidgetSpinner } from 'react-icons/tb'
 import { imageUpload, saveUserInDb } from '../../api/utils'
+import { getAuth } from 'firebase/auth'
 
 const SignUp = () => {
-    const { createUser, updateUserProfile, signInWithGoogle, loading } = useAuth()
+    const { createUser, updateUserProfile, signInWithGoogle, loading, setUser } = useAuth()
     const navigate = useNavigate()
     const { register, handleSubmit } = useForm()
+    const auth = getAuth()
 
     const onSubmit = async data => {
         const image = data.image[0]
@@ -18,6 +20,9 @@ const SignUp = () => {
         try {
             const result = await createUser(data.email, data.password)
             await updateUserProfile(data.name, imageUrl)
+
+            await auth.currentUser.reload()
+            setUser({ ...auth.currentUser })
 
             const userData = {
                 name: data.name,

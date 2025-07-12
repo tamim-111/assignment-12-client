@@ -38,6 +38,7 @@ const AuthProvider = ({ children }) => {
 
   const logOut = async () => {
     setLoading(true)
+    localStorage.removeItem('access-token') // ✅ Remove token
     return signOut(auth)
   }
 
@@ -48,32 +49,35 @@ const AuthProvider = ({ children }) => {
     })
   }
 
-  // onAuthStateChange
+  // Monitor auth state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async currentUser => {
-      console.log('CurrentUser-->', currentUser?.email)
+      console.log('CurrentUser -->', currentUser?.email)
       if (currentUser?.email) {
+
+        if (!currentUser.photoURL || !currentUser.displayName) {
+          await currentUser.reload()
+          currentUser = auth.currentUser
+        }
+
         setUser(currentUser)
 
-        // Get JWT token
-        await axios.post(
-          `${import.meta.env.VITE_API_URL}/jwt`,
-          {
+        // ✅ Store JWT in localStorage
+        try {
+          const res = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`, {
             email: currentUser?.email,
-          },
-          { withCredentials: true }
-        )
+          })
+          localStorage.setItem('access-token', res.data.token)
+        } catch (err) {
+          console.error('JWT fetch error:', err)
+        }
       } else {
-        setUser(currentUser)
-        await axios.get(`${import.meta.env.VITE_API_URL}/logout`, {
-          withCredentials: true,
-        })
+        setUser(null)
+        localStorage.removeItem('access-token') // ✅ Remove token on logout
       }
       setLoading(false)
     })
-    return () => {
-      return unsubscribe()
-    }
+    return () => unsubscribe()
   }, [])
 
   const authInfo = {
@@ -89,7 +93,9 @@ const AuthProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={authInfo}>
+      {children}
+    </AuthContext.Provider>
   )
 }
 
