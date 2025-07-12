@@ -51,64 +51,64 @@ const router = createBrowserRouter([
       //       path: '/invoice/:id',
       //       element: <Invoice />
       //     }
-      //   ]
-      // },
-      // {
-      //   path: '/dashboard',
-      //   element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
-      //   errorElement: <ErrorPage />,
-      //   children: [
-      //     // Admin Routes
-      //     {
-      //       path: 'admin-home',
-      //       element: <AdminHome />
-      //     },
-      //     {
-      //       path: 'manage-users',
-      //       element: <ManageUsers />
-      //     },
-      //     {
-      //       path: 'manage-categories',
-      //       element: <ManageCategories />
-      //     },
-      //     {
-      //       path: 'manage-banner',
-      //       element: <ManageBanner />
-      //     },
-      //     {
-      //       path: 'payment-management',
-      //       element: <PaymentManagement />
-      //     },
-      //     {
-      //       path: 'sales-report',
-      //       element: <SalesReport />
-      //     },
-
-      //     // Seller Routes
-      //     {
-      //       path: 'seller-home',
-      //       element: <SellerHome />
-      //     },
-      //     {
-      //       path: 'manage-medicines',
-      //       element: <ManageMedicines />
-      //     },
-      //     {
-      //       path: 'seller-payments',
-      //       element: <SellerPaymentHistory />
-      //     },
-      //     {
-      //       path: 'advertise-request',
-      //       element: <AskForAdvertisement />
-      //     },
-
-      //     // User Routes
-      //     {
-      //       path: 'user-payments',
-      //       element: <UserPaymentHistory />
-      //     }
     ]
-  }
+  },
+  // {
+  //   path: '/dashboard',
+  //   element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
+  //   errorElement: <ErrorPage />,
+  //   children: [
+  //     // Admin Routes
+  //     {
+  //       path: 'admin-home',
+  //       element: <AdminHome />
+  //     },
+  //     {
+  //       path: 'manage-users',
+  //       element: <ManageUsers />
+  //     },
+  //     {
+  //       path: 'manage-categories',
+  //       element: <ManageCategories />
+  //     },
+  //     {
+  //       path: 'manage-banner',
+  //       element: <ManageBanner />
+  //     },
+  //     {
+  //       path: 'payment-management',
+  //       element: <PaymentManagement />
+  //     },
+  //     {
+  //       path: 'sales-report',
+  //       element: <SalesReport />
+  //     },
+
+  //     // Seller Routes
+  //     {
+  //       path: 'seller-home',
+  //       element: <SellerHome />
+  //     },
+  //     {
+  //       path: 'manage-medicines',
+  //       element: <ManageMedicines />
+  //     },
+  //     {
+  //       path: 'seller-payments',
+  //       element: <SellerPaymentHistory />
+  //     },
+  //     {
+  //       path: 'advertise-request',
+  //       element: <AskForAdvertisement />
+  //     },
+
+  //     // User Routes
+  //     {
+  //       path: 'user-payments',
+  //       element: <UserPaymentHistory />
+  //     }
+  // ]
+  // }
 ])
 
 export default router
