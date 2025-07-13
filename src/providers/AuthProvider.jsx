@@ -52,7 +52,6 @@ const AuthProvider = ({ children }) => {
   // Monitor auth state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async currentUser => {
-      console.log('CurrentUser -->', currentUser?.email)
       if (currentUser?.email) {
 
         if (!currentUser.photoURL || !currentUser.displayName) {

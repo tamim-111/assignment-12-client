@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from '../../components/Shared/Container';
+import Container from '../../components/Container/Container';
 
 const FAQ = () => {
     return (

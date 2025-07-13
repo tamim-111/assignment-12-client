@@ -4,7 +4,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import { Pagination, Autoplay } from 'swiper/modules';
-import Container from '../../components/Shared/Container'; // 
+import Container from '../../components/Container/Container';
+
 
 const discountProducts = [
     { id: 1, name: 'Vitamin C Tablets', price: 15.99, discount: 30, img: 'https://www.lifevisionhealthcare.com/wp-content/uploads/2022/01/possible-benefits-of-vitamin-c-supplements-1440x810-1.jpg' },

@@ -1,11 +1,11 @@
-import Container from '../Container'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { FaGlobeAmericas, FaShoppingCart } from 'react-icons/fa'
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router'
-import useAuth from '../../../hooks/useAuth'
-import avatarImg from '../../../assets/images/placeholder.jpg'
-import logo from '../../../assets/images/logo.svg'
+import avatarImg from '../../assets/images/placeholder.jpg'
+import logo from '../../assets/images/logo.svg'
+import Container from '../Container/Container'
+import useAuth from '../../hooks/useAuth'
 
 const Navbar = () => {
   const { user, logOut } = useAuth()
@@ -37,14 +37,14 @@ const Navbar = () => {
               </NavLink>
               {/* Join Us Button (only if not logged in) */}
               {!user && (
-                <Link
+                <NavLink
                   to='/login'
                   className={({ isActive }) =>
                     `${isActive ? 'underline font-semibold' : ''}`
                   }
                 >
                   Join Us
-                </Link>
+                </NavLink>
               )}
               <NavLink
                 to='/cart'
