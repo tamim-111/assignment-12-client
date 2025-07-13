@@ -1,10 +1,9 @@
-import Plants from '../../components/Home/Plants'
+import LatestNews from './LatestNews'
 
 const Home = () => {
   return (
     <div>
-      {/* <Plants /> */}
-      i am home
+      <LatestNews></LatestNews>
     </div>
   )
 }
