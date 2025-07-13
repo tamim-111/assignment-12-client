@@ -39,20 +39,25 @@ const Login = () => {
 
     const handleGoogleSignIn = async () => {
         try {
-            const result = await signInWithGoogle()
+            const result = await signInWithGoogle();
+
             const userData = {
                 name: result?.user?.displayName,
                 email: result?.user?.email,
                 image: result?.user?.photoURL,
-            }
-            await saveUserInDb(userData)
-            toast.success('Login Successful')
-            navigate(from, { replace: true })
+                role: 'user', // 
+            };
+
+            await saveUserInDb(userData);
+
+            toast.success('Login Successful');
+            navigate(from, { replace: true });
         } catch (err) {
-            console.log(err)
-            toast.error(err?.message)
+            console.log(err);
+            toast.error(err?.message);
         }
-    }
+    };
+
 
     return (
         <div className='flex justify-center items-center min-h-screen bg-white'>
